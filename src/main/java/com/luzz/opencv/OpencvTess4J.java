@@ -79,7 +79,7 @@ public class OpencvTess4J {
     }
 
     private static boolean isEligible(RotatedRect candidate) {
-        double error = 0.2f;
+        double error = 0.1f;
         double aspect = 4.5f/0.3f; //长宽比
         int min = Double.valueOf(10 * aspect * 10).intValue(); //最小区域
         int max = Double.valueOf(50 * aspect * 50).intValue();  //最大区域
