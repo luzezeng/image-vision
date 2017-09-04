@@ -27,28 +27,27 @@ import static org.opencv.imgproc.Imgproc.*;
 public class OpencvTess4J {
     private static final String TEMP_IMAGE_STORAGE_PATH = "/Users/joseph/workspace/IDRecognize/tempImages/";
     private static final String TESS_DATA_PATH = "/Users/joseph/workspace/IDRecognize/tessdata";
-    private static final String NUMBER_PATH_IMG_NAME = "numberPart.jpg";
 
     public static String recognize(String imgPath) throws Exception {
-        //灰度化
+        //gray
         Mat grayMat = new Mat();
         Mat mat = Imgcodecs.imread(imgPath);
         Imgproc.cvtColor(mat, grayMat, Imgproc.COLOR_RGB2GRAY);
 
-        //二值化
+        //binary
         Mat binaryMat = new Mat();
         Imgproc.threshold(grayMat, binaryMat, 100, 255, Imgproc.THRESH_BINARY);
-        generateImageFile(binaryMat, "02_binary.jpg");
+        generateImageFile(binaryMat, "binary.jpg");
 
-        //获得身份证号码区域
+        //get number part
         List<RotatedRect>  rects = new ArrayList<RotatedRect>();
         posDetect(grayMat, binaryMat ,rects);
         Mat outputMat = new Mat();
         normalPosArea(binaryMat, rects.get(0), outputMat); //获得身份证号码字符矩阵
-        generateImageFile(outputMat, NUMBER_PATH_IMG_NAME);
+        generateImageFile(outputMat, "numberPart.jpg");
 
-        //识别号码区域
-        File imageFile = new File(TEMP_IMAGE_STORAGE_PATH+ NUMBER_PATH_IMG_NAME);
+        //recognize numbers
+        File imageFile = new File(TEMP_IMAGE_STORAGE_PATH + "numberPart.jpg");
         Tesseract instance = new Tesseract();
         instance.setDatapath(TESS_DATA_PATH);
         instance.setLanguage("eng");
@@ -67,7 +66,6 @@ public class OpencvTess4J {
         Mat hierarchy = new Mat();
         findContours(threshold_Inv, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_NONE);//只检测外轮廓
 
-        //对候选的轮廓进行进一步筛选
         Iterator<MatOfPoint> iterator = contours.iterator();
         while (iterator.hasNext()) {
             MatOfPoint point = iterator.next();
@@ -108,7 +106,7 @@ public class OpencvTess4J {
         Mat img_rotated = new Mat();
         warpAffine(intputImg ,img_rotated,rotmat, intputImg.size(),INTER_CUBIC);
 
-        //裁剪图像
+        //cut the image
         Size rect_size = rects_optimal.size;
 
         if(r<1) {
@@ -119,7 +117,7 @@ public class OpencvTess4J {
         Mat  img_crop = new Mat();
         getRectSubPix(img_rotated ,rect_size,rects_optimal.center , img_crop );
 
-        //用光照直方图调整所有裁剪得到的图像，使具有相同宽度和高度，适用于训练和分类
+        //make the width is equal to high
         Mat resultResized = new Mat();
         resultResized.create(20,300,CV_8UC1);
         resize(img_crop , resultResized,resultResized.size() , 0,0,INTER_CUBIC);
