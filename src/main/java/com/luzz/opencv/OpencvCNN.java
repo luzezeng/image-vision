@@ -6,24 +6,8 @@ import com.luzz.opencv.image.enums.ImageType;
 import com.luzz.opencv.ml.Recognizor;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.ml.ANN_MLP;
-import org.opencv.ml.TrainData;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
-
-import static org.opencv.core.Core.*;
-import static org.opencv.core.CvType.CV_32FC1;
-import static org.opencv.core.CvType.CV_32SC1;
-import static org.opencv.core.CvType.CV_8UC1;
-import static org.opencv.core.Mat.zeros;
-import static org.opencv.imgproc.Imgproc.*;
-import static org.opencv.imgproc.Imgproc.INTER_CUBIC;
-import static org.opencv.ml.ANN_MLP.UPDATE_WEIGHTS;
-import static org.opencv.ml.Ml.ROW_SAMPLE;
 
 /**
  * Second Version

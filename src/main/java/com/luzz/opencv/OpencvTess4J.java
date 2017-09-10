@@ -5,20 +5,11 @@ import com.luzz.opencv.image.enums.IDCard;
 import com.luzz.opencv.image.enums.ImageType;
 import com.luzz.opencv.ml.LanguageType;
 import com.luzz.opencv.ml.Recognizor;
-import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
-
-import static org.opencv.core.Core.*;
-import static org.opencv.core.CvType.CV_8UC1;
-import static org.opencv.imgproc.Imgproc.*;
 
 /**
  * First Version
