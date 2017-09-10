@@ -5,41 +5,35 @@ import com.luzz.opencv.image.enums.IDCard;
 import com.luzz.opencv.image.enums.ImageType;
 import com.luzz.opencv.ml.LanguageType;
 import com.luzz.opencv.ml.Recognizor;
-import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
-
-import static org.opencv.core.Core.*;
-import static org.opencv.core.CvType.CV_8UC1;
-import static org.opencv.imgproc.Imgproc.*;
 
 /**
  * First Version
+ *
  * 缺陷：1. 图片大小受限. 改进：Resize.
  *      2. 灰度化调用openCV库. 改进：后面手动采用R通道获取.
  *      3. 二值化阈值固定. 改进：后面需要对图像计算后动态获取.
  *      4. 对字符的识别调用google开源库. 改进：后面需要通过opencv-ml库自定义机器学习算法训练生成策略.
  *
  * 后面计划：学习书《学习OpenCV(中文版)》
+ *
+ * @author Joseph Lu
  */
-public class OpencvTess4J {
+public class OpencvAdvancedTess4J {
     private static final String TEMP_IMAGE_STORAGE_PATH = "/Users/joseph/workspace/IDRecognize/tempimages/";
     private static final String NUMBER_PATH_IMG_NAME = "numberPart.jpg";
 
     public static String recognize(String imgPath) throws Exception {
-        //gray
-        Mat grayMat = ImageHelper.generateGray(Imgcodecs.imread(imgPath));
+
+        //gray from R channel
+        Mat grayMat = ImageHelper.obtainRChannel(Imgcodecs.imread(imgPath));
         ImageHelper.generateGrayImageFile(grayMat, TEMP_IMAGE_STORAGE_PATH + "gray.jpg", ImageType.JPG);
 
-        //binary
-        Mat binaryMat = ImageHelper.generateNormalBinary(grayMat);
+        //binary from self-adaption
+        Mat binaryMat = ImageHelper.generateSelfAdaptionBinary(grayMat);
         ImageHelper.generateGrayImageFile(binaryMat, TEMP_IMAGE_STORAGE_PATH + "binary.jpg", ImageType.JPG);
 
         //get ID card attributes
