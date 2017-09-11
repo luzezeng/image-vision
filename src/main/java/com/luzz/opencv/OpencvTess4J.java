@@ -3,7 +3,7 @@ package com.luzz.opencv;
 import com.luzz.opencv.image.ImageHelper;
 import com.luzz.opencv.image.enums.IDCard;
 import com.luzz.opencv.image.enums.ImageType;
-import com.luzz.opencv.ml.LanguageType;
+import com.luzz.opencv.ml.enums.LanguageType;
 import com.luzz.opencv.ml.Recognizor;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;

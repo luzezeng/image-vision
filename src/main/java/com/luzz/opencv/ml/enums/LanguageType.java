@@ -1,4 +1,4 @@
-package com.luzz.opencv.ml;
+package com.luzz.opencv.ml.enums;
 
 public enum LanguageType {
     ENGLIST(1, "eng");

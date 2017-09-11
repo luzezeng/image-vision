@@ -1,5 +1,6 @@
 package com.luzz.opencv.ml;
 
+import com.luzz.opencv.ml.enums.LanguageType;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.*;
