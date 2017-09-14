@@ -4,7 +4,7 @@ Program language is Java
 
 Current Build Status: ![Build Status](https://travis-ci.org/bitcoin-dot-org/bitcoin.org.svg?branch=master)
 
-Report problems or help improve the site by opening a [new issue](https://github.com/bitcoin-dot-org/bitcoin.org/issues/new) or [pull request](https://github.com/bitcoin-dot-org/bitcoin.org/compare).
+Report problems or help improve the site by opening a [new issue](https://github.com/luzezeng/image-vision/issues/new) or [pull request](https://github.com/luzezeng/image-vision/compare).
 
 ## What I have done
 #### 1. Recognize numbers or words in any identity card from Chinese based on OpenCV and Tess4J
