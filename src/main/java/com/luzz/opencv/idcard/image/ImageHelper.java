@@ -1,7 +1,7 @@
-package com.luzz.opencv.image;
+package com.luzz.opencv.idcard.image;
 
-import com.luzz.opencv.image.enums.IDCard;
-import com.luzz.opencv.image.enums.ImageType;
+import com.luzz.opencv.idcard.image.enums.IDCard;
+import com.luzz.opencv.idcard.image.enums.ImageType;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 

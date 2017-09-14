@@ -1,6 +1,6 @@
-package com.luzz.opencv.ml;
+package com.luzz.opencv.idcard.ml;
 
-import com.luzz.opencv.ml.enums.LanguageType;
+import com.luzz.opencv.idcard.ml.enums.LanguageType;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.*;
@@ -29,7 +29,7 @@ public class Recognizor {
     private static final String ANN_XML_PATH = "/Users/joseph/workspace/IDRecognize/src/main/resources/annconfig.xml";
 
     /**
-     * Recognize by Tess4J
+     * Recognize by Tess4Jer
      * @param image
      * @return
      */

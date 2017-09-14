@@ -1,9 +1,10 @@
-package com.luzz.opencv;
+package com.luzz.opencv.idcard.impl;
 
-import com.luzz.opencv.image.ImageHelper;
-import com.luzz.opencv.image.enums.IDCard;
-import com.luzz.opencv.image.enums.ImageType;
-import com.luzz.opencv.ml.Recognizor;
+import com.luzz.opencv.idcard.IDCardClient;
+import com.luzz.opencv.idcard.image.ImageHelper;
+import com.luzz.opencv.idcard.image.enums.IDCard;
+import com.luzz.opencv.idcard.image.enums.ImageType;
+import com.luzz.opencv.idcard.ml.Recognizor;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -18,14 +19,14 @@ import java.util.*;
  *      3. Will add other character's recognization
  *      4. Will improve the accuracy
  *      5. Will try other machine learning method
- * 后面计划：学习书《学习OpenCV(中文版)》
+ * Later plan：Learn machine learning and opencv
  *
  * @author Joseph Lu
  */
-public class OpencvCNN {
+public class CNNer implements IDCardClient {
     private static final String TEMP_IMAGE_STORAGE_PATH = "/Users/joseph/workspace/IDRecognize/tempimages/";
 
-    public static String recognize(String imgPath) throws Exception {
+    public Map<String, String> recognize(String imgPath) throws Exception {
         //gray from R channel
         Mat grayMat = ImageHelper.obtainRChannel(Imgcodecs.imread(imgPath));
         ImageHelper.generateGrayImageFile(grayMat, TEMP_IMAGE_STORAGE_PATH + "gray.jpg", ImageType.JPG);
@@ -47,6 +48,17 @@ public class OpencvCNN {
             ImageHelper.generateGrayImageFile(charMat.get(i), TEMP_IMAGE_STORAGE_PATH + "/chars/" + i + ".jpg", ImageType.JPG);
         }
 
-        return String.valueOf(Recognizor.recognizeIDCardByCNN(charMat));
+        final StringBuffer idBuffer = new StringBuffer();
+        for (String item : Recognizor.recognizeIDCardByCNN(charMat)) {
+            if (item != null && !item.equals("")) {
+                idBuffer.append(item);
+            }
+        }
+
+        return new HashMap<String, String>() {
+            {
+                put("ID", idBuffer.toString());
+            }
+        };
     }
 }

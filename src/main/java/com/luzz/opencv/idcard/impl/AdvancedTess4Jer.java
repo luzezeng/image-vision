@@ -1,10 +1,11 @@
-package com.luzz.opencv;
+package com.luzz.opencv.idcard.impl;
 
-import com.luzz.opencv.image.ImageHelper;
-import com.luzz.opencv.image.enums.IDCard;
-import com.luzz.opencv.image.enums.ImageType;
-import com.luzz.opencv.ml.enums.LanguageType;
-import com.luzz.opencv.ml.Recognizor;
+import com.luzz.opencv.idcard.IDCardClient;
+import com.luzz.opencv.idcard.image.ImageHelper;
+import com.luzz.opencv.idcard.image.enums.IDCard;
+import com.luzz.opencv.idcard.image.enums.ImageType;
+import com.luzz.opencv.idcard.ml.enums.LanguageType;
+import com.luzz.opencv.idcard.ml.Recognizor;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import java.io.File;
@@ -13,21 +14,18 @@ import java.util.*;
 /**
  * First Version
  *
- * 缺陷：1. 图片大小受限. 改进：Resize.
- *      2. 灰度化调用openCV库. 改进：后面手动采用R通道获取.
- *      3. 二值化阈值固定. 改进：后面需要对图像计算后动态获取.
- *      4. 对字符的识别调用google开源库. 改进：后面需要通过opencv-ml库自定义机器学习算法训练生成策略.
+ * Disadvantage：1. Recognition for Chinese characters hasn't worked yet
+ *              2. Words' recognition is based on Tess4j. We will going to replace that from ml algorithm
  *
- * 后面计划：学习书《学习OpenCV(中文版)》
+ * Later Plan：Learn Machine Learning and OpenCV
  *
  * @author Joseph Lu
  */
-public class OpencvAdvancedTess4J {
+public class AdvancedTess4Jer implements IDCardClient {
     private static final String TEMP_IMAGE_STORAGE_PATH = "/Users/joseph/workspace/IDRecognize/tempimages/";
     private static final String NUMBER_PATH_IMG_NAME = "numberPart.jpg";
 
-    public static String recognize(String imgPath) throws Exception {
-
+    public Map<String, String> recognize(String imgPath) throws Exception {
         //gray from R channel
         Mat grayMat = ImageHelper.obtainRChannel(Imgcodecs.imread(imgPath));
         ImageHelper.generateGrayImageFile(grayMat, TEMP_IMAGE_STORAGE_PATH + "gray.jpg", ImageType.JPG);
@@ -44,6 +42,12 @@ public class OpencvAdvancedTess4J {
         ImageHelper.generateGrayImageFile(IdArea, TEMP_IMAGE_STORAGE_PATH + "numberPart.jpg", ImageType.JPG);
 
         //recognize the picture
-        return Recognizor.recognizeByTess4J(new File(TEMP_IMAGE_STORAGE_PATH + NUMBER_PATH_IMG_NAME), LanguageType.ENGLIST);
+        final String id = Recognizor.recognizeByTess4J(new File(TEMP_IMAGE_STORAGE_PATH + NUMBER_PATH_IMG_NAME), LanguageType.ENGLIST);
+
+        return new HashMap<String, String>() {
+            {
+                put("ID", id);
+            }
+        };
     }
 }
