@@ -24,9 +24,9 @@ import static org.opencv.ml.ANN_MLP.UPDATE_WEIGHTS;
 import static org.opencv.ml.Ml.ROW_SAMPLE;
 
 public class Recognizor {
-    private static String TESS_DATA_PATH = "/Users/joseph/workspace/IDRecognize/src/main/resources/tessdata";
-    private static final String TRAIN_NUMBER_CHAR_SET_PATH = "/Users/joseph/workspace/IDRecognize/src/main/resources/trainnums/";
-    private static final String ANN_XML_PATH = "/Users/joseph/workspace/IDRecognize/src/main/resources/annconfig.xml";
+    private static String TESS_DATA_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/tessdata";
+    private static final String TRAIN_NUMBER_CHAR_SET_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/trainnums/";
+    private static final String ANN_XML_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/annconfig.xml";
 
     /**
      * Recognize by Tess4Jer

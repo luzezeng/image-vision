@@ -11,6 +11,6 @@ public class IDCardClientTest {
     public static void main(String[] args) throws Exception {
         System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
         IDCardClient client = new Tess4Jer();
-        System.out.println(client.recognize("/Users/joseph/workspace/IDRecognize/sourceimages/test.png"));
+        System.out.println(client.recognize("/Users/joseph/workspace/image-vision/sourceimages/test.png"));
     }
 }
