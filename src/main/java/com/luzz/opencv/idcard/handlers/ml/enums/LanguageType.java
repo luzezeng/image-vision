@@ -1,4 +1,4 @@
-package com.luzz.opencv.idcard.ml.enums;
+package com.luzz.opencv.idcard.handlers.ml.enums;
 
 public enum LanguageType {
     ENGLIST(1, "eng");

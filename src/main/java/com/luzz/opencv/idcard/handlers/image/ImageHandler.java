@@ -1,7 +1,7 @@
-package com.luzz.opencv.idcard.image;
+package com.luzz.opencv.idcard.handlers.image;
 
-import com.luzz.opencv.idcard.image.enums.IDCard;
-import com.luzz.opencv.idcard.image.enums.ImageType;
+import com.luzz.opencv.idcard.handlers.image.enums.IDCard;
+import com.luzz.opencv.idcard.handlers.image.enums.ImageType;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 
@@ -21,7 +21,7 @@ import static org.opencv.imgproc.Imgproc.minAreaRect;
  *
  * @author Joseph
  */
-public class ImageHelper {
+public class ImageHandler {
     /**
      * Normal way to generate gray scale for image
      * @param image

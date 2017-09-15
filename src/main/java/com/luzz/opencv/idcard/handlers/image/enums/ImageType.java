@@ -1,4 +1,4 @@
-package com.luzz.opencv.idcard.image.enums;
+package com.luzz.opencv.idcard.handlers.image.enums;
 
 public enum  ImageType {
     JPG(1, "jpg"),
