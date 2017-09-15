@@ -10,7 +10,7 @@ Report problems or help improve the site by opening a [new issue](https://github
 #### 1. Recognize numbers or words in any identity card from Chinese based on OpenCV and Tess4J
     Handle the gray scale and binaryzation issue by tools provided in OpenCV, and recognize the numbers or words with the help of Tess4J.
 
-#### 2. Recognize numbers in any identity identity card from Chinese based on OpenCV and machine learning algorithm
+#### 2. Recognize numbers in any identity card from Chinese based on OpenCV and machine learning algorithm
     Instead of the Tess4J, the recognition task has been completed by machine learning coding myself, and you can see all the code directly.
 
 ## What will be upgraded afterwards
