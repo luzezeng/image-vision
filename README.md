@@ -27,7 +27,7 @@ You can run the project easily in every popular operating system. Take the examp
     run brew install opencv in terminal
 
 #### 2. Install Tesseract if your running code based on Tess4J
-    run brew install tesseract --all-language
+    run brew install tesseract --all-language in termimal
 
 #### 3. Change the path of your own directory in the test code
 
@@ -35,7 +35,7 @@ You can run the project easily in every popular operating system. Take the examp
     Take the example of Intellij Idea, you should set the java.library.path formed like -Djava.library.path=/usr/local/opt/opencv3/share/OpenCV/java
 
 #### 4. Tip need to know before
-    Be sure that you have install HomeBrew
+    Be sure that you have installed Homebrew in your computer
 
 ### Questions?
 Please contact Will Joseph Lu ([luzezeng@gmail.com](mailto:luzezeng@gmail.com)) if you need help.
