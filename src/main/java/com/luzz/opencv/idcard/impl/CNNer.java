@@ -1,10 +1,10 @@
 package com.luzz.opencv.idcard.impl;
 
 import com.luzz.opencv.idcard.IDCardClient;
-import com.luzz.opencv.idcard.handlers.image.ImageHandler;
-import com.luzz.opencv.idcard.handlers.image.enums.IDCard;
-import com.luzz.opencv.idcard.handlers.image.enums.ImageType;
-import com.luzz.opencv.idcard.handlers.ml.RecognizeHandler;
+import com.luzz.opencv.idcard.handler.image.ImageHandler;
+import com.luzz.opencv.idcard.handler.image.enums.IDCard;
+import com.luzz.opencv.idcard.handler.image.enums.ImageType;
+import com.luzz.opencv.idcard.handler.ml.MLHandler;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -49,7 +49,7 @@ public class CNNer implements IDCardClient {
         }
 
         final StringBuffer idBuffer = new StringBuffer();
-        for (String item : RecognizeHandler.recognizeIDCardByCNN(charMat)) {
+        for (String item : MLHandler.recognizeIDCardByCNN(charMat)) {
             if (item != null && !item.equals("")) {
                 idBuffer.append(item);
             }

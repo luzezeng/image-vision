@@ -1,6 +1,6 @@
-package com.luzz.opencv.idcard.handlers.ml;
+package com.luzz.opencv.idcard.handler.ml;
 
-import com.luzz.opencv.idcard.handlers.ml.enums.LanguageType;
+import com.luzz.opencv.idcard.handler.ml.enums.LanguageType;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import org.opencv.core.*;
@@ -23,7 +23,7 @@ import static org.opencv.imgproc.Imgproc.resize;
 import static org.opencv.ml.ANN_MLP.UPDATE_WEIGHTS;
 import static org.opencv.ml.Ml.ROW_SAMPLE;
 
-public class RecognizeHandler {
+public class MLHandler {
     private static String TESS_DATA_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/tessdata";
     private static final String TRAIN_NUMBER_CHAR_SET_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/trainnums/";
     private static final String ANN_XML_PATH = "/Users/joseph/workspace/image-vision/src/main/resources/annconfig.xml";

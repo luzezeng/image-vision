@@ -1,12 +1,13 @@
-package com.luzz.opencv.idcard.handlers.ml.enums;
+package com.luzz.opencv.idcard.handler.image.enums;
 
-public enum LanguageType {
-    ENGLIST(1, "eng");
+public enum  ImageType {
+    JPG(1, "jpg"),
+    PNG(2, "png");
 
     private int code;
     private String type;
 
-    LanguageType(int code, String type) {
+    ImageType(int code, String type) {
         this.code = code;
         this.type = type;
     }
