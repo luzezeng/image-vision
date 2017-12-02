@@ -11,7 +11,7 @@
             <groupId>org.opencv</groupId>
             <artifactId>opencv</artifactId>
             <version>3.3.0</version>
-            <systemPath>/usr/local/opt/opencv3/share/OpenCV/java/opencv-330.jar</systemPath>
+            <systemPath>E:/software/opencv/build/java/opencv-331.jar</systemPath>
             <scope>system</scope>
         </dependency>
         <dependency>
