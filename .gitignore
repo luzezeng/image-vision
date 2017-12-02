@@ -1,0 +1,4 @@
+*.iml
+/target
+/tempimages
+/.idea
