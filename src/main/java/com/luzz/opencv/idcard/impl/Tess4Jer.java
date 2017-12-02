@@ -24,7 +24,7 @@ import java.util.*;
  * @author Joseph Lu
  */
 public class Tess4Jer implements IDCardClient {
-    private static final String TEMP_IMAGE_STORAGE_PATH = "E:/workspace/image-vision/tempimages";
+    private static final String TEMP_IMAGE_STORAGE_PATH = "E:/workspace/image-vision/tempimages/";
     private static final String NUMBER_PATH_IMG_NAME = "numberPart.jpg";
 
     public Map<String, String> recognize(String imgPath) throws Exception {

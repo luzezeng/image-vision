@@ -24,7 +24,7 @@ import java.util.*;
  * @author Joseph Lu
  */
 public class CNNer implements IDCardClient {
-    private static final String TEMP_IMAGE_STORAGE_PATH = "E:/workspace/image-vision/tempimages";
+    private static final String TEMP_IMAGE_STORAGE_PATH = "E:/workspace/image-vision/tempimages/";
 
     public Map<String, String> recognize(String imgPath) throws Exception {
         //gray from R channel
